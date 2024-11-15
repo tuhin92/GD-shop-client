@@ -54,10 +54,10 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="flex gap-2">
             <Link to="login">
-              <button className="btn bg-[#b056bb] text-white">Sign in</button>
+              <button className="btn bg-[#b056bb] text-white">Login</button>
             </Link>
             <Link to='register'>
-              <button className="btn bg-[#234d6f] text-white">Sign Up</button>
+              <button className="btn bg-[#234d6f] text-white">Register</button>
             </Link>
           </div>
         </div>
