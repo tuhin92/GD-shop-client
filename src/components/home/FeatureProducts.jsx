@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 
 const FeatureProducts = () => {
     return (
-        <div className="flex items-center justify-between gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center">
             <ProductCard/>
             <ProductCard/>
             <ProductCard/>
