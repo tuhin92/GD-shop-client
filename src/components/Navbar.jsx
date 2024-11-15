@@ -2,12 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const navlinks = <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/products">Products</Link></li>
-    <li><Link to="/about">About</Link></li>
-    <li><Link to="/contact">Contact us</Link></li>
+  const navlinks = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/products">Products</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/contact">Contact us</Link>
+      </li>
     </>
+  );
   return (
     <div className="bg-base-300">
       <div className="navbar max-w-7xl mx-auto">
@@ -39,12 +49,17 @@ const Navbar = () => {
           <a className="btn btn-ghost text-xl">Gadget Shop</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {navlinks}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <div className="flex gap-2">
+            <Link to="login">
+              <button className="btn bg-[#b056bb] text-white">Sign in</button>
+            </Link>
+            <Link to='register'>
+              <button className="btn bg-[#234d6f] text-white">Sign Up</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
