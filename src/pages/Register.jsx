@@ -11,9 +11,16 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data)=>{
-    console.log(data);
-  }
+  const onSubmit = (data) => {
+    CreateUser(data.email, data.password)
+      .then((userCredential) => {
+        console.log(userCredential.user);
+      })
+      .catch((error) => {
+        console.error("Registration failed:", error.message);
+      });
+  };
+
   return (
     <div className="hero bg-base-700 min-h-screen">
       <div className="hero-content flex-col">
@@ -50,11 +57,14 @@ const Register = () => {
                 })}
               />
               {errors.password?.type === "required" && (
-                <p className="text-red-500 text-sm font-thin">Password is required</p>
+                <p className="text-red-500 text-sm font-thin">
+                  Password is required
+                </p>
               )}
-
               {errors.password?.type === "minLength" && (
-                <p className="text-red-500 text-sm font-thin">Password must have at least 6 characters</p>
+                <p className="text-red-500 text-sm font-thin">
+                  Password must have at least 6 characters
+                </p>
               )}
             </div>
 
@@ -68,28 +78,30 @@ const Register = () => {
                 className="input input-bordered"
                 {...register("confirmPassword", {
                   required: true,
-                  validate: (value)=> {
-                    if(watch('password') != value){
-                      return "Your password do not match"
+                  validate: (value) => {
+                    if (watch("password") !== value) {
+                      return "Your passwords do not match";
                     }
-                  }
+                  },
                 })}
               />
-              {
-                errors.confirmPassword && (
-                  <p className="text-red-500 text-sm font-thin">Both password should be same</p>
-                )
-              }
+              {errors.confirmPassword && (
+                <p className="text-red-500 text-sm font-thin">
+                  Both passwords should be the same
+                </p>
+              )}
             </div>
 
             <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary">Register</button>
+              <button type="submit" className="btn btn-primary">
+                Register
+              </button>
             </div>
             <p className="py-4 text-sm">
               Already have an account?{" "}
               <Link className="text-blue-700" to="/login">
                 Login
-              </Link>{" "}
+              </Link>
             </p>
           </form>
         </div>
