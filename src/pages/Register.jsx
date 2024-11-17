@@ -85,7 +85,7 @@ const Register = () => {
             <div className="form-control mt-6">
               <button type="submit" className="btn btn-primary">Register</button>
             </div>
-            <p className="py-4 text-sm font-normal">
+            <p className="py-4 text-sm">
               Already have an account?{" "}
               <Link className="text-blue-700" to="/login">
                 Login
