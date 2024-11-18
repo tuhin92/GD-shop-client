@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 
 const UserDropDown = () => {
   const { user, Logout } = useAuth();
-  const handleLogout = () =>{
-    Logout();
-  }
 
+  const handleLogout = () => {
+    Logout();
+  };
 
   return (
     <div className="dropdown dropdown-bottom dropdown-end">
-      <div tabIndex={0} role="button">
+      <div tabIndex={0} role="button" aria-label="User menu">
         <div className="avatar">
-          <div className=" w-8 rounded-full">
-            <img src={`${user?.photoURL || "/public/user.png"}`} />
+          <div className="w-8 rounded-full">
+            <img src={`${user?.photoURL || "/user.png"} `} />
           </div>
         </div>
       </div>
@@ -23,10 +23,12 @@ const UserDropDown = () => {
         className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
       >
         <li>
-          <Link>Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
-          <button onClick={handleLogout} className="btn btn-primary btn-sm">Logout</button>
+          <button onClick={handleLogout} className="btn btn-primary btn-sm">
+            Logout
+          </button>
         </li>
       </ul>
     </div>

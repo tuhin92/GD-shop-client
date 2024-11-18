@@ -54,24 +54,26 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
-        {user ? (
-          <div className="navbar-end">
-            <UserDropDown />
-          </div>
-        ) : (
-          <div className="">
-            <div className="flex gap-2">
-              <Link to="login">
-                <button className="btn bg-[#b056bb] text-white">Login</button>
-              </Link>
-              <Link to="register">
-                <button className="btn bg-[#234d6f] text-white">
-                  Register
-                </button>
-              </Link>
+        <div className="navbar-end">
+          {user ? (
+            <div>
+              <UserDropDown />
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="">
+              <div className="flex gap-2">
+                <Link to="login">
+                  <button className="btn bg-[#b056bb] text-white">Login</button>
+                </Link>
+                <Link to="register">
+                  <button className="btn bg-[#234d6f] text-white">
+                    Register
+                  </button>
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
