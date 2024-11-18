@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useForm } from "react-hook-form";
 
@@ -11,10 +11,13 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     CreateUser(data.email, data.password)
       .then((userCredential) => {
         console.log(userCredential.user);
+        navigate("/");
       })
       .catch((error) => {
         console.error("Registration failed:", error.message);
