@@ -74,7 +74,7 @@ const Login = () => {
             <Google_login/>
             <p className="py-4 text-sm font-normal">
               Don't have an account?{" "}
-              <Link className="text-blue-700" to="/register">
+              <Link className="text-blue-600" to="/register">
                 Register here
               </Link>
             </p>
